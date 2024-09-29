@@ -4,6 +4,7 @@ server:
 app:
   token:
     secretKey: ${JWT_SECRETKEY:bWluaGEtc2VuaGEtYmFzZTY0LXBhc3N3b3JkLWF1dGgtYXBp}
+
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
