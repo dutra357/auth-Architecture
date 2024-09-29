@@ -1,0 +1,2 @@
+INSERT into public.user (id, username, password) VALUES (1, 'user.test', '$2a$10$N/s3TzWGNFdCEdg4X29QXu/1h9EZAPt26ojBsBbgCCPG0VPuya8.q')
+INSERT into public.user (id, username, password) VALUES (2, 'user.new.test', '$2a$10$N/s3TzWGNFdCEdg4X29QXu/1h9EZAPt26ojBsBbgCCPG0VPuya8.q')
