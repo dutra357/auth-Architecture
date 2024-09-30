@@ -2,16 +2,15 @@ package com.microservice.stateless_auth_api.core.service;
 
 import com.microservice.stateless_auth_api.core.DTO.AuthRequest;
 import com.microservice.stateless_auth_api.core.DTO.TokenDTO;
-import com.microservice.stateless_auth_api.core.UserRepository;
+import com.microservice.stateless_auth_api.core.repository.UserRepository;
 import jakarta.validation.ValidationException;
-import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import static org.springframework.util.ObjectUtils.isEmpty;
 
 @Service
-@AllArgsConstructor
 public class AuthService {
 
     private final PasswordEncoder passwordEncoder;
@@ -24,7 +23,7 @@ public class AuthService {
     }
 
     public TokenDTO login(AuthRequest request) {
-        var user = repository.findByUsername(request.userName())
+        var user = repository.findByUserName(request.userName())
                 .orElseThrow(() -> new ValidationException("User not found."));
 
         var accessToken = jwtService.createToken(user);
