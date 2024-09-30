@@ -27,7 +27,6 @@ public class TokenService {
         this.objectMapper = objectMapper;
     }
 
-
     public String createToken(String username) {
         var accessToken = UUID.randomUUID().toString();
         var data = new TokenData(username);
@@ -48,7 +47,7 @@ public class TokenService {
 
     public TokenData getTokenData(String token) {
         var accessToken = extractToken(token);
-        var jsonString = getRedisTokenValue(getJsonData(accessToken));
+        var jsonString = getRedisTokenValue(accessToken);
         try {
             return objectMapper.readValue(jsonString, TokenData.class);
         } catch (Exception exception) {

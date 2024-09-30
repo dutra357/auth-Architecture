@@ -37,17 +37,21 @@ public class AuthService {
         if (valid) {
             return new TokenDTO(accessToken);
         }
-
         throw new ValidationException("Invalid token.");
     }
 
     public AuthUserResponse getAuthenticatedUser(String accessToken) {
         var tokenData = tokenService.getTokenData(accessToken);
         var user = findByUsername(tokenData.username());
+        return new AuthUserResponse(user.getId(), user.getUserName());
+    }
+
+    public void logout(String accessToken){
+        tokenService.deleteRedisToken(accessToken);
     }
 
     private User findByUsername(String username) {
-        userRepository.findByUsername(username)
+        return userRepository.findByUsername(username)
                 .orElseThrow(() -> new ValidationException("User not found."));
     }
 
