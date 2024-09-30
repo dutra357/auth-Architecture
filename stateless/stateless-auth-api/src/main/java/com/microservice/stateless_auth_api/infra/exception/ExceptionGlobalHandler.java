@@ -20,3 +20,4 @@ public class ExceptionGlobalHandler {
         return new ResponseEntity<>(details, HttpStatus.UNAUTHORIZED);
     }
 }
+
