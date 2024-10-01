@@ -3,7 +3,7 @@ server:
 
 app:
   token:
-    secretKey: ${JWT_SECRETKEY:bWluaGEtc2VuaGEtYmFzZTY0LXBhc3N3b3JkLWF1dGgtYXBp}
+    secretKey: ${JWT_SECRETKEY:c}
 
 spring:
   datasource:
