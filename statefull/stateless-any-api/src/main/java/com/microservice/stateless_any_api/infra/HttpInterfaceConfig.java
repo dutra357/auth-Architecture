@@ -18,8 +18,7 @@ public class HttpInterfaceConfig {
     public TokenClient tokenClient() {
         return HttpServiceProxyFactory
                 .builderFor(WebClientAdapter
-                        .create(
-                                WebClient
+                        .create(WebClient
                                         .builder()
                                         .baseUrl(baseUrl)
                                         .build()))
